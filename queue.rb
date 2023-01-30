@@ -1,7 +1,6 @@
-def Queue
-  def initialize 
+class Queue
+  def initialize
     @queues = []
-    @queues
   end
 
   def push(item)
@@ -9,18 +8,22 @@ def Queue
   end
 
   def peek
-    puts @queues[@queues.length - 1]
+    @queues[@queues.length - 1]
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
   def pop
-    @queues.delete_at[@queues.length - 1]
+    @queues.delete_at(@queues.length - 1)
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
-  def print 
+  def print
     puts @queues
   end
 
-  def isEmpty
+  def empty
     @queues.empty?
   end
 
