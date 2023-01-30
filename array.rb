@@ -1,23 +1,26 @@
 class MyArray
   def initialize
     @arrays = []
-    @arrays
   end
 
   def push(item)
-    @arrays[@arrays.length] = item
+    @arrays.push(item)
   end
 
   def pop
-    @arrays.delete_at[@arrays.length - 1]
+    @arrays.delete_at(@arrays.length - 1)
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
   def shift
-    @arrays.delete_at[0]
+    @arrays.delete_at(0)
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
-  def unshift
-    @arrays.unshift = item
+  def unshift(item)
+    @arrays.unshift(item)
   end
 
   def print
@@ -25,11 +28,13 @@ class MyArray
   end
 
   def peek
-    puts @arrays[@arrays.length - 1]
+    @arrays[@arrays.length - 1]
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
-  def isEmpty
-    @arrays.length == 0
+  def empty
+    @arrays.empty?
   end
 
   def size

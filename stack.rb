@@ -1,25 +1,29 @@
-def Stack
-  def initialize 
+class Stack
+  def initialize
     @stacks = []
-    @stacks
   end
+
   def peek
-    puts @stacks[@stacks.length - 1]
+    @stacks[@stacks.length - 1]
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
   def push(item)
-    @stacks[@stacks.length] = item
+    @stacks.push(item)
   end
 
   def pop
-    @stacks.delete_at[@stacks.length - 1]
+    @stacks.delete_at(@stacks.length - 1)
+  rescue IndexError => e
+    puts "Wystąpił błąd: #{e.message}"
   end
 
-  def print 
+  def print
     puts @stacks
   end
 
-  def isEmpty
+  def empty
     @stacks.empty?
   end
 
